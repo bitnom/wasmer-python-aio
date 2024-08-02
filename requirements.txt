@@ -1,2 +1,4 @@
 aiohttp
 quart
+fastapi
+uvicorn

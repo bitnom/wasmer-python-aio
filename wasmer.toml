@@ -8,8 +8,20 @@
 name = "script"
 module = "wasmer/python:python"
 runner = "wasi"
+# runner = "wasix"
 
 [command.annotations.wasi]
-#main-args = ["/src/main.py"]
-env = ["PYTHONEXECUTABLE=/bin/python"]
+
+env = ["PYTHONEXECUTABLE=/bin/python", "QUART_APP=src/main:app"]
+# main-args = [
+#     "-m",
+#     "quart",
+#     "run",
+#     "--port",
+#     "80",
+#     "--debug",
+#     "--no-reload"
+# ]
+#main-args = ["/src/quart_wasmer.py"]
+# main-args = ["/src/fastapi_wasmer.py"]
 main-args = ["/src/aiohttp_wasmer.py"]
